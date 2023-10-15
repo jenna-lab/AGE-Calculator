@@ -103,29 +103,22 @@ small{
 
 @media screen and (max-width:600px) {
     .card{
-        width: 360px;
+        width: 600px;
+        height: 90vh;
     }
     .container{
-        padding: 1rem;
+        padding: 20px;
     }
     .form_container{
-        margin-bottom: 5rem;
+        margin-bottom: 10px;
         gap: 0;
         justify-content: space-between;
     }
-    .submit_block{
-        position: relative;
-    }
-    .sumbit_btn{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
+    
     .output{
-        margin-top: 5rem;
+        margin-top: 80px;
     }
     .output h1{
-        font-size: 3.5rem;
+        font-size: 50px;
     }
 }
