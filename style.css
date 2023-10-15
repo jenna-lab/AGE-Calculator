@@ -55,6 +55,10 @@ input::placeholder{
     font-weight: 800;
 }
 
+input:focus {
+    border: 2px solid #3498db;
+  }
+
 .submit-box{
     display: flex;
     align-items: center;
@@ -74,6 +78,10 @@ input::placeholder{
     justify-content: center;
     background-color: #864EFF;
 }
+
+.submit-btn:hover {
+    transform: scale(1.1);
+  }
 .output h1{
     font-size: 60px;
     font-weight: 900;

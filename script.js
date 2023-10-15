@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // event listener for the form
   form.addEventListener('submit', function(e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
     // Clear previous errors
     const errorMessages = document.querySelectorAll("small");
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const inputMonth = parseInt(monthInput.value);
       const inputYear = parseInt(yearInput.value);
 
-      const currentDate = new Date(); 
+      const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1; 
+      const currentMonth = currentDate.getMonth() + 1;
       const currentDay = currentDate.getDate();
 
       if (inputDay < 1 || inputDay > 31) {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         yearInput.nextElementSibling.textContent = "Year can't be in the future";
       }
 
-      // Check the validity of the date
+      // Check for the validity of the date
       if (inputDay > new Date(inputYear, inputMonth, 0).getDate()) {
         isValid = false;
         dayInput.nextElementSibling.textContent = "Invalid date";
@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isValid) {
       // age calculation based on today's date
-      const currentDate = new Date(); 
+      const currentDate = new Date();
       const inputDay = parseInt(dayInput.value);
       const inputMonth = parseInt(monthInput.value);
       const inputYear = parseInt(yearInput.value);
 
       const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1; 
+      const currentMonth = currentDate.getMonth() + 1;
       const currentDay = currentDate.getDate();
 
       // Calculating the difference in years, months, and days
@@ -72,10 +72,25 @@ document.addEventListener('DOMContentLoaded', function() {
       let months = currentMonth - inputMonth;
       let days = currentDay - inputDay;
 
-      // Displaying the age
-      yearOutput.textContent = years;
-      monthOutput.textContent = months;
-      dayOutput.textContent = days;
+      // Displaying the age with animation
+      animateValue(yearOutput, 0, years, 2000);
+      animateValue(monthOutput, 0, months, 2000);
+      animateValue(dayOutput, 0, days, 2000);
     }
   });
+
+  // Animate the numbers
+  function animateValue(element, start, end, duration) {
+    let current = start;
+    let range = end - start;
+    let increment = end > start ? 1 : -1;
+    let stepTime = Math.abs(Math.floor(duration / range));
+    let timer = setInterval(function() {
+      current += increment;
+      element.textContent = current;
+      if (current == end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
 });
