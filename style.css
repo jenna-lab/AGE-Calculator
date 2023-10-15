@@ -88,6 +88,10 @@ input::placeholder{
     color: #864EFF;
     font-size: 84px;
 }
+small{
+    color: red;
+}
+
 
 @media screen and (max-width:600px) {
     .card{

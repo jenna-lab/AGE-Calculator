@@ -1,6 +1,6 @@
 # Frontend Mentor - Age calculator app solution
 
-This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). 
 
 ### The challenge
 
@@ -23,7 +23,7 @@ Users should be able to:
 
 
 ### Links
-- Live Site URL: [Add live site URL here]()
+- Live Site URL: [Add live site URL here](https://jenna-lab.github.io/AGE-Calculator/)
 
 
 ### Built with
@@ -32,8 +32,6 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
 
 ## Author
 JENNIFER SAMMY

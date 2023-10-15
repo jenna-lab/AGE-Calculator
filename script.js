@@ -14,35 +14,68 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(e) {
     e.preventDefault(); 
 
-    // age calculation based on today's date
-    const currentDate = new Date(); 
-    const inputDay = parseInt(dayInput.value);
-    const inputMonth = parseInt(monthInput.value);
-    const inputYear = parseInt(yearInput.value);
+    // Clear previous errors
+    const errorMessages = document.querySelectorAll("small");
+    errorMessages.forEach(error => error.textContent = "");
 
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1; 
-    const currentDay = currentDate.getDate();
+    // Validations
+    let isValid = true;
 
-    // Calculating the difference in years, months, and days
-    let years = currentYear - inputYear;
-    let months = currentMonth - inputMonth;
-    let days = currentDay - inputDay;
+    if (dayInput.value === "" || monthInput.value === "" || yearInput.value === "") {
+      isValid = false;
+      if (dayInput.value === "") dayInput.nextElementSibling.textContent = "Day is required";
+      if (monthInput.value === "") monthInput.nextElementSibling.textContent = "Month is required";
+      if (yearInput.value === "") yearInput.nextElementSibling.textContent = "Year is required";
+    } else {
+      const inputDay = parseInt(dayInput.value);
+      const inputMonth = parseInt(monthInput.value);
+      const inputYear = parseInt(yearInput.value);
 
-    if (months < 0 || (months === 0 && days < 0)) {
-      years--;
-      months += 12;
+      const currentDate = new Date(); 
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth() + 1; 
+      const currentDay = currentDate.getDate();
+
+      if (inputDay < 1 || inputDay > 31) {
+        isValid = false;
+        dayInput.nextElementSibling.textContent = "Invalid day";
+      }
+      if (inputMonth < 1 || inputMonth > 12) {
+        isValid = false;
+        monthInput.nextElementSibling.textContent = "Invalid month";
+      }
+      if (inputYear > currentYear) {
+        isValid = false;
+        yearInput.nextElementSibling.textContent = "Year can't be in the future";
+      }
+
+      // Check the validity of the date
+      if (inputDay > new Date(inputYear, inputMonth, 0).getDate()) {
+        isValid = false;
+        dayInput.nextElementSibling.textContent = "Invalid date";
+      }
     }
 
-    if (days < 0) {
-      const prevMonth = new Date(currentDate.getFullYear(), currentMonth - 1, 0);
-      days += prevMonth.getDate();
-      months--;
-    }
+    if (isValid) {
+      // age calculation based on today's date
+      const currentDate = new Date(); 
+      const inputDay = parseInt(dayInput.value);
+      const inputMonth = parseInt(monthInput.value);
+      const inputYear = parseInt(yearInput.value);
 
-    // Displaying the age
-    yearOutput.textContent = years;
-    monthOutput.textContent = months;
-    dayOutput.textContent = days;
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth() + 1; 
+      const currentDay = currentDate.getDate();
+
+      // Calculating the difference in years, months, and days
+      let years = currentYear - inputYear;
+      let months = currentMonth - inputMonth;
+      let days = currentDay - inputDay;
+
+      // Displaying the age
+      yearOutput.textContent = years;
+      monthOutput.textContent = months;
+      dayOutput.textContent = days;
+    }
   });
 });
