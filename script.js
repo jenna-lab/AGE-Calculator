@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const dayInput = document.getElementById("day");
   const monthInput = document.getElementById("month");
   const yearInput = document.getElementById("year");
-
   const dayOutput = document.getElementById("DD");
   const monthOutput = document.getElementById("MM");
   const yearOutput = document.getElementById("YY");
@@ -18,56 +17,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessages = document.querySelectorAll("small");
     errorMessages.forEach(error => error.textContent = "");
 
-    // Validations
-    let isValid = true;
+    //check if date provided is valid
+    const isValidDate = (d, m, y) => {
+      const date = new Date(y, m - 1, d);
+      return date.getDate() == d && date.getMonth() + 1 == m && date.getFullYear() == y;
+    };
+     //values for the date
+    const inputDay = parseInt(dayInput.value);
+    const inputMonth = parseInt(monthInput.value);
+    const inputYear = parseInt(yearInput.value);
 
-    if (dayInput.value === "" || monthInput.value === "" || yearInput.value === "") {
-      isValid = false;
-      if (dayInput.value === "") dayInput.nextElementSibling.textContent = "Day is required";
-      if (monthInput.value === "") monthInput.nextElementSibling.textContent = "Month is required";
-      if (yearInput.value === "") yearInput.nextElementSibling.textContent = "Year is required";
+    //checking for empty fields
+    if (!inputDay || !inputMonth || !inputYear) {
+      dayInput.nextElementSibling.textContent = inputDay ? "" : "Day is required";
+      monthInput.nextElementSibling.textContent = inputMonth ? "" : "Month is required";
+      yearInput.nextElementSibling.textContent = inputYear ? "" : "Year is required";
+
+      //day validity
+    } else if (inputDay < 1 || inputDay > 31) {
+      dayInput.nextElementSibling.textContent = "Invalid day";
+    
+      //month validity
+    } else if (inputMonth < 1 || inputMonth > 12) {
+      monthInput.nextElementSibling.textContent = "Invalid month";
+     
+      //year validity
+    } else if (inputYear > new Date().getFullYear()) {
+      yearInput.nextElementSibling.textContent = "Year can't be in the future";
+
+      //checking whole date validity
+    } else if (!isValidDate(inputDay, inputMonth, inputYear)) {
+      dayInput.nextElementSibling.textContent = "Invalid date";
+    //if all validations pass calculate current age
     } else {
-      const inputDay = parseInt(dayInput.value);
-      const inputMonth = parseInt(monthInput.value);
-      const inputYear = parseInt(yearInput.value);
-
       const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
       const currentMonth = currentDate.getMonth() + 1;
       const currentDay = currentDate.getDate();
 
-      if (inputDay < 1 || inputDay > 31) {
-        isValid = false;
-        dayInput.nextElementSibling.textContent = "Invalid day";
-      }
-      if (inputMonth < 1 || inputMonth > 12) {
-        isValid = false;
-        monthInput.nextElementSibling.textContent = "Invalid month";
-      }
-      if (inputYear > currentYear) {
-        isValid = false;
-        yearInput.nextElementSibling.textContent = "Year can't be in the future";
-      }
-
-      // Check for the validity of the date
-      if (inputDay > new Date(inputYear, inputMonth, 0).getDate()) {
-        isValid = false;
-        dayInput.nextElementSibling.textContent = "Invalid date";
-      }
-    }
-
-    if (isValid) {
-      // age calculation based on today's date
-      const currentDate = new Date();
-      const inputDay = parseInt(dayInput.value);
-      const inputMonth = parseInt(monthInput.value);
-      const inputYear = parseInt(yearInput.value);
-
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1;
-      const currentDay = currentDate.getDate();
-
-      // Calculating the difference in years, months, and days
+      // Calculating the difference FOR THE AGE
       let years = currentYear - inputYear;
       let months = currentMonth - inputMonth;
       let days = currentDay - inputDay;
