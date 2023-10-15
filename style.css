@@ -1,0 +1,119 @@
+body{
+    background-color: #F0F0F0;
+    font-family: "Poppins", sans-serif;
+}
+.full-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    /* border: yellow 2px solid; */
+    background-color: #FFFFFF;
+    border-radius: 1rem 1rem 10rem .1rem;
+    margin: 40px;
+    width: 60%;
+    height: 90vh;
+}
+form{
+    /* border: solid 2px green; */
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+  
+}
+.container{
+    display: flex;
+    gap: 20px;
+    /* border: solid red 2px; */
+}
+.box{
+    padding: 5px;
+    padding-top: 30px;    
+    padding-left: 20px;
+}
+.box label{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    color: #757575;
+}
+input{
+    width: 100px;
+    padding: 15px;
+    border-radius: .5rem;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+input::placeholder{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.submit-box{
+    display: flex;
+    align-items: center;
+    /* border: 2px solid yellow; */
+}
+.submit-box hr{
+    width: 100%;
+}
+.submit-btn{
+    border-radius: 50%;
+    padding: 30px;
+    margin-right: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #864EFF;
+}
+.output h1{
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    height: fit-content;
+    margin-left: 80px;
+    /* border: solid 2px black; */
+
+}
+.output span{
+    color: #864EFF;
+}
+small{
+    /* color: red; */
+}
+@media screen and (max-width:600px) {
+    .card{
+        width: 360px;
+    }
+    .container{
+        padding: 1rem;
+    }
+    .form_container{
+        margin-bottom: 5rem;
+        gap: 0;
+        justify-content: space-between;
+    }
+    .submit_block{
+        position: relative;
+    }
+    .sumbit_btn{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .output{
+        margin-top: 5rem;
+    }
+    .output h1{
+        font-size: 3.5rem;
+    }
+}
