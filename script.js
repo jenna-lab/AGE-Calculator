@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (inputYear > new Date().getFullYear()) {
       yearInput.nextElementSibling.textContent = "Year can't be in the future";
 
-      //checking whole date validity
+      // whole date validity
     } else if (!isValidDate(inputDay, inputMonth, inputYear)) {
       dayInput.nextElementSibling.textContent = "Invalid date";
     //if all validations pass calculate current age
