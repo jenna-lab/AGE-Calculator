@@ -50,12 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
       dayInput.nextElementSibling.textContent = "Invalid date";
     //if all validations pass calculate current age
     } else {
+      //today's date
       const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
       const currentMonth = currentDate.getMonth() + 1;
       const currentDay = currentDate.getDate();
 
-      // Calculating the difference FOR THE AGE
+      // Calculating THE AGE
       let years = currentYear - inputYear;
       let months = currentMonth - inputMonth;
       let days = currentDay - inputDay;
