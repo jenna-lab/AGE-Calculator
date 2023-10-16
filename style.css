@@ -14,7 +14,7 @@ body{
     border-radius: 1rem 1rem 10rem .1rem;
     margin: 40px;
     width: 60%;
-    height: 80vh;
+    /* height: 80vh; */
 }
 form{
     /* border: solid 2px green; */
@@ -117,7 +117,7 @@ small{
     }
     
     .output{
-        margin-top: 80px;
+        /* margin-top: 80px; */
     }
     .output h1{
         font-size: 50px;
