@@ -52,8 +52,10 @@ input{
 }
 
 input::placeholder{
-    font-size: 20px;
-    font-weight: 800;
+    /* font-size: 20px; */
+    /* font-weight: 800; */
+    font-size: 30px; 
+    font-weight: 600;
 }
 
 input:focus {
@@ -117,17 +119,18 @@ small{
     }
     
     .output{
-        /* margin-top: 80px; */
+        margin-top: 80px;
     }
     .output h1{
         font-size: 50px;
     }
 }
 
-/* 
+
 @media screen and (max-width: 360px) {
     .full-card {
         height: 100vh;
+        /* width: 100%; */
     }
     .card {
         margin: 0;
@@ -137,6 +140,7 @@ small{
     form {
         height: 40vh;
         width: 100%;
+        margin-top: 30px;
     }
     .container {
         width: 82%;
@@ -146,31 +150,43 @@ small{
 
     }
     .box {
-        padding: 0;
+       gap: 0;
+       /* font-size: 50px; */
+    }
+    .box label{
+        font-weight: 600;
+        font-size: 10px;
     }
     input {
         width: 30px;
         font-size: 14px;
     }
     input::placeholder {
-        font-size: 9px;
-        font-weight: 800;
+        font-size: 8px;
+        font-weight: 700;
+        width: 20px;
     }
     .submit-box {
+        margin-top: 80px;
         justify-content: center;
     }
     .submit-box hr {
-        width: 30%;
+        width: 50%;
+        margin: 20px 0;
     }
     .submit-btn {
-        border: 2px solid yellow;
+        /* border: 2px solid yellow; */
         height: 10vh;
         display: flex;
         justify-content: center;
+        margin-right: 130px;
+        /* position: relative; */
     }
+
+
     .output h1 {
         width: 100%;
-        font-size: 30px;
+        font-size: 40px;
         margin: 0;
         display: flex;
         justify-content: center;
@@ -180,8 +196,8 @@ small{
         font-size: 34px;
     }
    .output{
-    height: 40vh;
+    height: 50vh;
     justify-content: center;
     align-items: center;
    }
-}  */
+}  
