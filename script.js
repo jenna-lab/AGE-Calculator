@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputMonth = parseInt(monthInput.value);
         const inputYear = parseInt(yearInput.value);
 
-        //  handle input validation
+        //  handle validation
         function handleValidation() {
             let isValid = true;
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
             }
 
-            // Calculating current age if all validations pass
+            // Calculating  age if all validations pass
             if (isValid) {
                 const currentDate = new Date();
                 const currentYear = currentDate.getFullYear();
