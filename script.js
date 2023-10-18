@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const monthOutput = document.getElementById("MM");
   const yearOutput = document.getElementById("YY");
   const today = new Date();
-
   const form = document.querySelector(".form");
 
   // event listener for the form
