@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const dayOutput = document.getElementById("DD");
   const monthOutput = document.getElementById("MM");
   const yearOutput = document.getElementById("YY");
-  const today = new Date();
   const form = document.querySelector(".form");
 
   // event listener for the form
@@ -94,77 +93,24 @@ document.addEventListener("DOMContentLoaded", function () {
         isValid = false;
       }
 
-      // Calculating  age if all validations pass
+      // Calculating age if all validations pass
       if (isValid) {
-        // const currentDate = new Date();
-        // const currentYear = currentDate.getFullYear();
-        // const currentMonth = currentDate.getMonth() + 1;
-        // const currentDay = currentDate.getDate();
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1;
+        const currentDay = currentDate.getDate();
 
-        // let years = currentYear - inputYear;
-        // let months = currentMonth - inputMonth;
-        // something
-        data = new Date(inputYear, inputMonth, inputDay);
+        let years = currentYear - inputYear;
+        let months = currentMonth - inputMonth;
+        let days = currentDay - inputDay;
 
-        let display = caculate_value(data, today);
-        // console.log(display.days);
-
-        // let days = currentDay - inputDay;
-        // console.log({
-        // //  currentDate,
-        // //  currentMonth,
-        // //  currentYear,
-        // //  years,
-        // //  months,
-        //  currentDay,
-        //  days
-        // })
-
-        // animateValue(yearOutput, 0, years, 2000);
-        // animateValue(monthOutput, 0, months, 2000);
-        // animateValue(dayOutput, 0, days, 2000);
-
-        animateValue(yearOutput, 0, display.years, 2000);
-        animateValue(monthOutput, 0, display.months, 2000);
-        animateValue(dayOutput, 0, display.days, 2000);
+        // Display the values
+        yearOutput.textContent = years;
+        monthOutput.textContent = months;
+        dayOutput.textContent = days;
       }
     }
 
     handleValidation();
   });
-
-  // Animate the numbers
-  function animateValue(element, start, end, duration) {
-    let current = start;
-    let range = end - start;
-    let increment = end > start ? 1 : -1;
-    let stepTime = Math.abs(Math.floor(duration / range));
-    let timer = setInterval(function () {
-      current += increment;
-      if (current < 0) {
-        element.textContent = "--";
-      } else {
-        element.textContent = current;
-      }
-      if (current == end) {
-        clearInterval(timer);
-      }
-    }, stepTime);
-  }
 });
-
-let caculate_value = (input, now) => {
-  const timediff = now - input;
-
-  const milliday = 24 * 60 * 60 * 1000;
-  const millimonth = milliday * 30.44;
-
-  let months = Math.floor(timediff / millimonth);
-
-  const days = Math.floor((timediff % millimonth) / milliday);
-
-  const years = Math.floor(months / 12);
-  months -= years * 12;
-
-  return { years, months, days };
-};
