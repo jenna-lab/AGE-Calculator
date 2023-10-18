@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
           dayInput.nextElementSibling.textContent = "Invalid day";
 
           //month validity
-      } else if (inputMonth < 1 || inputMonth > 12) {
+      }
+      
+      
+      else if (inputMonth < 1 || inputMonth > 12) {
           monthInput.nextElementSibling.textContent = "Invalid month";
 
           //year validity
