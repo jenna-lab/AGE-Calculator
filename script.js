@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
           dayInput.nextElementSibling.textContent =
             "Invalid day for the selected month";
         } else {
-          dayInput.nextElementSibling.textContent = "Invalid date";
+          dayInput.nextElementSibling.textContent =
+            "Invalid day for the selected month";
         }
         isValid = false;
       }
