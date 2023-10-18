@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dayOutput = document.getElementById("DD");
   const monthOutput = document.getElementById("MM");
   const yearOutput = document.getElementById("YY");
+
   const form = document.querySelector(".form");
 
   // event listener for the form
@@ -103,6 +104,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let years = currentYear - inputYear;
         let months = currentMonth - inputMonth;
         let days = currentDay - inputDay;
+
+        if (months < 0 || (months === 0 && days < 0)) {
+          years--;
+          months += 12;
+        }
+
+        if (days < 0) {
+          const monthDays = new Date(currentYear, currentMonth, 0).getDate();
+          months--;
+          days += monthDays;
+        }
 
         // Display the values
         yearOutput.textContent = years;
